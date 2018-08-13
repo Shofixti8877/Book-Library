@@ -13,7 +13,12 @@ class AddBook extends React.Component {
   errors: {}
 };
 
-handleOpen = () => this.setState({ modalOpen: true })
+handleOpen = () => {
+  this.setState({
+    data: { title: '', authors: '', publishedDate: ''},
+    modalOpen: true
+  });
+}
 
 handleClose = () => this.setState({ modalOpen: false })
 
@@ -50,7 +55,7 @@ validate = (data) =>{
       errors.title = "Can't be blank";
     }
     for (var i = 0; i < this.props.books.books.length; i++) {
-      if(data.title === this.props.books.books[i].volumeInfo.title){
+      if(data.title === this.titleFilter(this.props.books.books[i].volumeInfo.title)){
         errors.title = "Book already exists, please choose another title name";
         break;
       }

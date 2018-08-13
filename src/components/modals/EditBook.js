@@ -129,8 +129,10 @@ validate = (data) =>{
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
+                  <Grid.Column>
                   <Button primary>Save</Button>
                   <Button negative type='button' onClick ={this.handleClose} >Cancel</Button>
+                </Grid.Column>
                 </Grid.Row>
               </Grid>
               { errors.global && <Message negative>
